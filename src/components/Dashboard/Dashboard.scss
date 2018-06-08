@@ -11,6 +11,10 @@
         box-shadow: 0 4px 12px -6px grey;
         padding: 0 3rem;
 
+        @include mdm {
+            padding: 0 1rem;
+        }
+
         @include smm {
             padding: 0 .5rem;
         }
