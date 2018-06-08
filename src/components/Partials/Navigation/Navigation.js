@@ -6,7 +6,7 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink,
+    // NavLink,
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
@@ -31,7 +31,7 @@ const Navigation = props => {
                 <Collapse isOpen={props.isOpen} navbar>
                     <Nav className="ml-auto" navbar>
                         <NavItem>
-                        <InputGroup size="md">
+                        <InputGroup>
                             <Input placeholder="search" />
                             <InputGroupAddon addonType="append">
                                 <Button>@</Button>

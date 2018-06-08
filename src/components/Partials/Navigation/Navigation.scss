@@ -16,6 +16,12 @@
         .form-control {
             border-top-left-radius: 1.25rem;
             border-bottom-left-radius: 1.25rem;
+            
+            &:focus {
+                box-shadow: none;
+                outline: none;
+                border-color: $search-input-border-color;
+            }
         }
         button {
             border-top-right-radius: 1.25rem;
