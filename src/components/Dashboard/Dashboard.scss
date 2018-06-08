@@ -1,0 +1,20 @@
+@import '../../globals/styles/base';
+
+.Dashboard {
+    margin: 0;
+    font-family: "DINPro-Regular", "Josefin Sans", sans-serif;
+    color: $andela-grey-text;
+
+    .navigation-container {
+        width: 100%;
+        background-color: $andela-white;
+        box-shadow: 0 4px 12px -6px grey;
+        padding: 0 3rem;
+
+        @include smm {
+            padding: 0 .5rem;
+        }
+    }
+
+
+}

@@ -1,0 +1,144 @@
+@import '../../globals/styles/base';
+
+.Auth {
+  text-align: center;
+  position: relative;
+  height: 100vh;
+  background-color: $andela-blue;
+  margin: 0;
+  font-family: "Josefin Sans", sans-serif;
+
+  .login-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 800px;
+    height: 450px;
+    margin: -225px 0 0 -400px;
+    background-color: #fff;
+    border-radius: 7px;
+
+    .left-item,
+    .right-item {
+      width: 40%;
+      height: 100%;
+      float: left;
+    }
+    
+    .right-item {
+      position: relative;
+      width: 60%;
+      border-bottom-right-radius: 7px;
+      border-top-right-radius: 7px;
+      background-image: url(https://3xyh3sqxv063a8xzo5uk2zn1-wpengine.netdna-ssl.com/wp-content/uploads/2017/06/Andela-Developers-changing-the-world.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 1;
+
+      &:before {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      
+        content: "";
+      
+        opacity: 0.8;
+        border-bottom-right-radius: 7px;
+        border-top-right-radius: 7px;  
+        background-image: -moz-linear-gradient(45deg, $lighter-andela-blue 0%, $light-andela-blue 100%);
+        background-image: -webkit-linear-gradient(45deg, $lighter-andela-blue 0%, $light-andela-blue 100%);
+        background-image: -ms-linear-gradient(45deg, $lighter-andela-blue 0%, $light-andela-blue 100%);
+      }
+
+      .slider-panel {
+        display: table;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        color: #fff;
+
+        .inner-slider-panel {
+          display: table-cell;
+          vertical-align: middle;
+          /* put styles for things here on the slider */
+        }
+      }
+
+      @include smm {
+        display: none;
+      }
+    }
+    
+    .left-item {
+      .login-panel {
+        position: relative;
+        display: table;
+        width: 100%;
+        height: 100%;
+  
+        .inner-login-panel {
+          display: table-cell;
+          vertical-align: middle;
+  
+          .login-content-panel {
+            margin: 0 0 .5rem 0;
+            color: $andela-grey;
+  
+            .App-logo {
+              animation: App-logo-spin infinite 20s linear;
+              height: 10rem;
+              margin-bottom: 1rem;
+            }
+  
+            h1 {
+              margin: 0 0 7px 0;
+              text-transform: uppercase;
+              opacity: 0.8;
+              font-size: 1.5rem;
+            }
+            
+            p {
+              margin: 0;
+              text-transform: uppercase;
+              font-size: 13px;
+              opacity: 0.7;
+            }
+          }
+  
+          .google-btn-panel {
+            padding: 0 2.5rem;
+            text-align: center;
+  
+            img.Andela-App-logo {
+              border-radius: 2px;
+              width: 100%;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      @include smm {
+        width: 100%;
+      }
+    } 
+
+    @include mdm {
+      width: 700px;
+      margin: -225px 0 0 -350px;
+    }
+    @include smm {
+      width: 300px;
+      margin: -225px 0 0 -150px;
+    }
+  }
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
