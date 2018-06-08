@@ -6,4 +6,30 @@
         width: 10rem;
         height: 100%;
     }
+    li.nav-item {
+        margin-left: 1.2rem;
+
+        @include smm {
+            margin-left: 0;
+            margin-top: 1.2rem
+        }
+        .form-control {
+            border-top-left-radius: 1.25rem;
+            border-bottom-left-radius: 1.25rem;
+        }
+        button {
+            border-top-right-radius: 1.25rem;
+            border-bottom-right-radius: 1.25rem;
+        }
+    }
+    .dropdown-divider {
+        @include smm {
+            border-top: 1px solid #fff;
+        }
+    }
+    .dropdown-menu {
+        @include smm {
+            border: 1px solid #fff;
+        }
+    }
 }
