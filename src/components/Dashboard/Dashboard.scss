@@ -1,9 +1,11 @@
 @import '../../globals/styles/base';
 
 .Dashboard {
-    margin: 0;
-    font-family: "DINPro-Regular", "Josefin Sans", sans-serif;
+    font-family: "DINPro-Regular";
     color: $andela-grey-text;
+    min-height: 100%;
+    margin: 0 0 -5rem 0;
+
 
     .navigation-container {
         width: 100%;
@@ -20,5 +22,97 @@
         }
     }
 
+    .guest-list-container {
+        width: 100%;
+        padding: 2rem;
+        /* margin: 2rem 2rem 0 2rem; */
+        color: #525252;
+
+        .guest-list-top-section {
+            margin-bottom: 2rem;
+            height: 4rem;
+
+            .guest-list-table-title {
+                float: left;
+
+                .table-title-text {
+                    font-size: 1.5rem;
+                }
+
+                .line {
+                    width: fit-content;
+
+                    .long-line {
+                        width: 4rem;
+                        margin-right: 0.8rem;
+                        height: 0.3rem;
+                        border-radius: 0.3rem;
+                        background-color: $andela-blue;
+                        display: inline-block;
+                    }
+
+                    .short-line {
+                        width: 1rem;
+                        height: 0.3rem;
+                        border-radius: 0.3rem;
+                        background-color: $andela-blue;
+                        display: inline-block;
+                    }
+                }
+            }
+
+            .add-guest-container {
+                float: right;
+
+                .add-guest-btn {
+                    display: inline-block;
+                    position: relative;
+                    outline: none;
+                    -webkit-user-select: none;
+                    user-select: none;
+                    cursor: pointer;
+                    background-color: $andela-blue;
+                    color: $andela-white;
+                    box-shadow: 0 4px 10px 0 $andela-boxshadow-rgba-black;
+                    text-transform: capitalize;
+                    width: 10rem;
+                    height: 3rem;
+                    line-height: 1rem;
+                    text-align: center;
+                    border-radius: .3rem;
+                    padding: 1rem;
+                }
+            }
+        }
+
+        .guest-list-table-section {
+            .table {
+                .edit-icon {
+                    background-image: url("../../assets/edit-icon-blue.svg");
+                    background-repeat: no-repeat;
+                    display: inline-block;
+                    height: 1.5rem;
+                    width: 1.5rem;
+                    margin-right: .5rem;
+                    cursor: pointer;
+                }
+
+                .remove-icon {
+                    background-image: url("../../assets/delete-icon-red.svg");
+                    background-repeat: no-repeat;
+                    display: inline-block;
+                    height: 1.5rem;
+                    width: 1.5rem;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    &:after {
+        content: "";
+        display: block;
+        height: 5rem;
+    }
 
 }

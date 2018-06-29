@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import {
-    BrowserRouter as Router,
+    Router,
     Route,
     // Redirect,
     Switch
@@ -11,8 +11,8 @@ import './index.scss';
 import { Login } from './components/Auth';
 import { Dashboard } from './components/Dashboard';
 import registerServiceWorker from './registerServiceWorker';
-// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'font-awesome/css/font-awesome.min.css'; 
 
 
 const app = document.getElementById('root');

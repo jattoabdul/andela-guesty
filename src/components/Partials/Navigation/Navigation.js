@@ -34,7 +34,7 @@ const Navigation = props => {
                         <InputGroup>
                             <Input placeholder="search" />
                             <InputGroupAddon addonType="append">
-                                <Button>@</Button>
+                                <Button><i className="fa fa-search" aria-hidden="true"></i></Button>
                             </InputGroupAddon>
                         </InputGroup>
                         </NavItem>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="24px" viewBox="0 0 18 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>Delete</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Curriculum---Framework" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1216.000000, -373.000000)">
+        <g id="Table" transform="translate(60.000000, 322.000000)">
+            <g id="Self-Awareness" transform="translate(0.000000, 33.000000)">
+                <g id="Group-3" transform="translate(1110.000000, 15.000000)">
+                    <g id="Delete" transform="translate(40.000000, 0.000000)">
+                        <path d="M7.5,23.75 C7.5,25.125 8.625,26.25 10,26.25 L20,26.25 C21.375,26.25 22.5,25.125 22.5,23.75 L22.5,8.75 L7.5,8.75 L7.5,23.75 Z M23.75,5 L19.375,5 L18.125,3.75 L11.875,3.75 L10.625,5 L6.25,5 L6.25,7.5 L23.75,7.5 L23.75,5 Z" id="Shape" fill="#F55050" fill-rule="nonzero"></path>
+                        <polygon id="Shape" points="0 0 30 0 30 30 0 30"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
