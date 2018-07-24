@@ -4,7 +4,12 @@ import { Navigation } from '../Partials/Navigation';
 import { ModalContainer } from '../Partials/ModalContainer';
 import { FormContainer } from '../Partials/FormContainer';
 import { Footer } from '../Partials/Footer';
-
+import { Pagination } from '../Partials/Pagination';
+import {
+    InputGroup,
+    Input,
+    Label
+} from 'reactstrap';
 
 class Dashboard extends Component {
     constructor(props) {
@@ -58,12 +63,31 @@ class Dashboard extends Component {
                             </div>
                         </div>
                         <div className="add-guest-container">
+                            <div className="refresh-guest-btn">
+                                <span>Refresh</span>
+                            </div>
                             <div className="add-guest-btn"  onClick={this.toggle}>
                                 <span>Add Guest</span>
                             </div>
                         </div>
                     </div>
                     <div className="guest-list-table-section">
+                        <div className="table-filters">
+                            <InputGroup className="search-filter">
+                                <Label for="search">Filter by Name:</Label>
+                                <Input placeholder="search" name="search" id="search" />
+                            </InputGroup>
+                            <InputGroup className="no-of-record-filter">
+                                <Label for="no_of_record">No. of Records:</Label>
+                                <Input type="select" name="select" id="no_of_record">
+                                <option>10</option>
+                                <option>25</option>
+                                <option>50</option>
+                                <option>100</option>
+                                <option>All</option>
+                                </Input>
+                            </InputGroup>
+                        </div>
                         <table className="table table-striped">
                             <thead>
                                 <tr>
@@ -119,6 +143,10 @@ class Dashboard extends Component {
                                 </tr>
                             </tbody>
                         </table>
+                        <Pagination
+                            pageCount={parseInt(10, 10)}
+                            handlePageClick={this.handlePageClick}
+                        />
                     </div>
                     <ModalContainer isModalOpen={this.state.isModalOpen} toggle={this.toggle} isAdd={this.state.isAdd} addAction={this.addAction} editAction={this.editAction}>
                         <div className="action-form-container">

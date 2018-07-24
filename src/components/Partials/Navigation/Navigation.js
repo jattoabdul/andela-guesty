@@ -5,15 +5,10 @@ import {
     NavbarToggler,
     NavbarBrand,
     Nav,
-    NavItem,
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
-    DropdownItem,
-    Button,
-    InputGroup,
-    InputGroupAddon,
-    Input
+    DropdownItem
 } from 'reactstrap';
 import a_logo from '../../../assets/a-logo.png';
 import './Navigation.scss';
@@ -29,17 +24,9 @@ const Navigation = props => {
                 <NavbarToggler onClick={props.toggle} />
                 <Collapse isOpen={props.isOpen} navbar>
                     <Nav className="ml-auto" navbar>
-                        <NavItem>
-                        <InputGroup>
-                            <Input placeholder="search" />
-                            <InputGroupAddon addonType="append">
-                                <Button><i className="fa fa-search" aria-hidden="true"></i></Button>
-                            </InputGroupAddon>
-                        </InputGroup>
-                        </NavItem>
                         <UncontrolledDropdown nav inNavbar>
                             <DropdownToggle nav caret>
-                                <span className="avatar"><img src="http://via.placeholder.com/30x30" className="rounded" alt="user avatar"/></span> Aminujatto Abdulqahhar
+                                <span className="avatar"><img src="http://via.placeholder.com/50x50" className="rounded" alt="user avatar"/></span> Aminujatto Abdulqahhar
                             </DropdownToggle>
                             <DropdownMenu right>
                             <DropdownItem>

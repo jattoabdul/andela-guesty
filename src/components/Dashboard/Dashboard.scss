@@ -64,6 +64,30 @@
             .add-guest-container {
                 float: right;
 
+                .refresh-guest-btn {
+                    display: inline-block;
+                    position: relative;
+                    outline: none;
+                    -webkit-user-select: none;
+                    user-select: none;
+                    cursor: pointer;
+                    background-color: $andela-grey-light;
+                    color: $andela-white;
+                    box-shadow: 0 4px 10px 0 $andela-boxshadow-rgba-black;
+                    text-transform: capitalize;
+                    width: 10rem;
+                    height: 3rem;
+                    line-height: 1rem;
+                    text-align: center;
+                    border-radius: .3rem;
+                    padding: 1rem;
+                    margin-right: .5rem;
+            
+                    @include smm {
+                        width: 7rem;
+                    }
+                }
+
                 .add-guest-btn {
                     display: inline-block;
                     position: relative;
@@ -81,11 +105,45 @@
                     text-align: center;
                     border-radius: .3rem;
                     padding: 1rem;
+
+                    @include smm {
+                        width: 8rem;
+                    }
                 }
             }
         }
 
         .guest-list-table-section {
+            @include smm {
+                margin-top: 4rem;
+            }
+
+            .table-filters {
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 1rem;
+
+                .search-filter {
+                    width: 30rem;
+                }
+
+                .no-of-record-filter {
+                    width: 9.5rem;
+                    margin-left: 1rem;
+                }
+
+                input, select {
+                    border-radius: .5rem;
+                    margin-left: .5rem;
+
+                    &:focus {
+                        box-shadow: none;
+                        outline: none;
+                        border-color: $search-input-border-color;
+                    }
+                }
+            }
+
             .table {
                 .edit-icon {
                     background-image: url("../../assets/edit-icon-blue.svg");
@@ -106,6 +164,42 @@
                     cursor: pointer;
                 }
             }
+
+            .pagination {
+                display: flex;
+                padding-left: 0;
+                border-radius: .25rem;
+
+                li {
+                    display: list-item;
+
+                    &:first-child a {
+                        margin-left: 0;
+                        border-top-left-radius: .25rem;
+                        border-bottom-left-radius: .25rem;
+                    }
+
+                    &.break-me a {
+                        cursor: default;
+                        pointer-events: none;
+                        text-decoration: none;
+                    }
+                    
+                    a {
+                        cursor: pointer;
+                        position: relative;
+                        display: block;
+                        padding: .5rem .75rem;
+                        margin-left: -1px;
+                        line-height: 1.25;
+                        color: $andela-blue;
+                        background-color: $andela-white;
+                        border: 1px solid $andela-border-grey-light;
+                    }
+                }
+
+            }
+            
         }
     }
 
