@@ -1,16 +1,15 @@
 import React from 'react';
 import {
-    Collapse,
     Navbar,
     NavbarToggler,
     NavbarBrand,
-    Nav,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem
+    // Collapse,
+    // Nav,
+    // UncontrolledDropdown,
+    // DropdownToggle,
+    // DropdownMenu,
+    // DropdownItem
 } from 'reactstrap';
-import a_logo from '../../../assets/a-logo.png';
 import './Navigation.scss';
 
 
@@ -19,10 +18,10 @@ const Navigation = props => {
         <div className="Navigation">
             <Navbar color="white" light expand="md">
                 <NavbarBrand href="/">
-                    <img src={a_logo} className="navigation-logo" alt="andela in-app logo"/>
+                    <div className="navigation-logo"></div>
                 </NavbarBrand>
                 <NavbarToggler onClick={props.toggle} />
-                <Collapse isOpen={props.isOpen} navbar>
+                {/**<Collapse isOpen={props.isOpen} navbar>
                     <Nav className="ml-auto" navbar>
                         <UncontrolledDropdown nav inNavbar>
                             <DropdownToggle nav caret>
@@ -39,7 +38,7 @@ const Navigation = props => {
                             </DropdownMenu>
                         </UncontrolledDropdown>
                     </Nav>
-                </Collapse>
+    </Collapse>**/}
             </Navbar>
         </div>
     );

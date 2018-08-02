@@ -124,11 +124,11 @@
                 margin-bottom: 1rem;
 
                 .search-filter {
-                    width: 30rem;
+                    width: 25rem;
                 }
 
                 .no-of-record-filter {
-                    width: 9.5rem;
+                    width: 10.5rem;
                     margin-left: 1rem;
                 }
 
@@ -146,8 +146,8 @@
 
             .table {
                 .edit-icon {
-                    background-image: url("../../assets/edit-icon-blue.svg");
-                    background-repeat: no-repeat;
+                    background-image: url("../../assets/tag.png");
+                    background-repeat: round;
                     display: inline-block;
                     height: 1.5rem;
                     width: 1.5rem;
@@ -156,8 +156,8 @@
                 }
 
                 .remove-icon {
-                    background-image: url("../../assets/delete-icon-red.svg");
-                    background-repeat: no-repeat;
+                    background-image: url("../../assets/exit.png");
+                    background-repeat: round;
                     display: inline-block;
                     height: 1.5rem;
                     width: 1.5rem;

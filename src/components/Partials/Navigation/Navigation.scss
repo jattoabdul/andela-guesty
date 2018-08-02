@@ -4,8 +4,19 @@
     color: $andela-grey-text;
 
     .navigation-logo {
+        display: inline-block;
+        background-image: url("../../../assets/a-logo.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-y: center;
         width: 10rem;
-        height: 100%;
+        height: 3rem;
+        line-height: 2rem;
+
+        @include smm {
+            margin-bottom: 1rem;
+        }
+
     }
     li.nav-item {
         margin-left: 1.2rem;

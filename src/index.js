@@ -6,7 +6,6 @@ import configureStore from './stores/configureStore';
 import {
     Router,
     Route,
-    // Redirect,
     Switch
     } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory'
