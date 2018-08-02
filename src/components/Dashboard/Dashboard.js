@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './Dashboard.scss';
 import { Navigation } from '../Partials/Navigation';
@@ -113,7 +112,7 @@ class Dashboard extends Component {
                     <th scope="row">{index + 1}</th>
                     <td>{guest.guest_name}</td>
                     <td>{guest.host_name}</td>
-                    <td>{guest.purpose}</td>
+                    <td>{guest.purpose.charAt(0).toUpperCase() + guest.purpose.slice(1)}</td>
                     <td>{guest.time_in.format_24}</td>
                     <td>{guest.time_out.format_24}</td>
                     <td>{guest.tag_no}</td>

@@ -12,7 +12,7 @@ const AddTagNoForm = props => {
                 </FormGroup>
                 <FormGroup>
                     <Label for="tagNo">Tag No</Label>
-                    <Input type="text" name="tag_no" id="tagNo" placeholder="Visitor's ID Tag No" value={props.tagNo} placeholder={props.guest.tag_no} onChange={props.onChange}/>
+                    <Input type="text" name="tag_no" id="tagNo" value={props.tagNo} placeholder={props.guest.tag_no || "Visitor's ID Tag No"} onChange={props.onChange}/>
                 </FormGroup>
                 <FormGroup check>
                     <Label for="beep" check>

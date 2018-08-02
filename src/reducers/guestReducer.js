@@ -55,7 +55,6 @@ const guestReducer = (state = initialState, action) => {
       case ADD_GUEST_SUCCESS:
         return {
           ...state,
-          // Array.slice(0).reverse() // to duplicate and reverse the array in dashboard before mapping.
           allGuests: [payload, ...state.allGuests],
           isAddingGuest: false
         }
