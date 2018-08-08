@@ -8,12 +8,17 @@ const AddGuestForm = (props) => {
             <Form>
                 <FormGroup>
                     <Label for="addHostEmail">Host Email</Label>
-                    <Input type="email" name="hostEmail" id="addHostEmail"  placeholder="Add your andela email" value={props.hostEmail}
+                    <Input type="email" name="hostEmail" id="addHostEmail"  placeholder="Andela email" value={props.hostEmail}
                     onChange={props.onChange} />
                 </FormGroup>
                 <FormGroup>
-                    <Label for="addGuestName">Guest Name</Label>
-                    <Input type="text" name="guestName" id="addGuestName"  placeholder="Add your guest name" value={props.guestName}
+                    <Label for="addGuestName">Guest or Group Name</Label>
+                    <Input type="text" name="guestName" id="addGuestName"  placeholder="Add your guest/group name" value={props.guestName}
+                    onChange={props.onChange} />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="addGroupSize">Group Size</Label>
+                    <Input type="text" name="groupSize" id="addGroupSize"  placeholder="Number of guest Expected" value={props.groupSize}
                     onChange={props.onChange} />
                 </FormGroup>
                 <FormGroup>
@@ -25,11 +30,15 @@ const AddGuestForm = (props) => {
                 </FormGroup>
                 <FormGroup>
                     <Label for="timeIn">Time In</Label>
-                    <Input type="text" name="timeIn" id="timeIn" placeholder="Visitor's Time In" value={props.timeIn} onChange={props.onChange} />
+                    <Input type="text" name="timeIn" id="timeIn" placeholder="Guest's Time In" value={props.timeIn} onChange={props.onChange} />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="timeOut">Estimated Time Out</Label>
+                    <Input type="text" name="timeOut" id="timeOut" placeholder="Guest's Estimated Time Out" value={props.timeOut} onChange={props.onChange} />
                 </FormGroup>
                 <FormGroup>
                     <Label for="tagNo">Tag No</Label>
-                    <Input type="text" name="tagNo" id="tagNo" placeholder="Visitor's ID Tag No" value={props.tagNo} onChange={props.onChange} />
+                    <Input type="text" name="tagNo" id="tagNo" placeholder="Guest's ID Tag No" value={props.tagNo} onChange={props.onChange} />
                 </FormGroup>
             </Form>
         </div>

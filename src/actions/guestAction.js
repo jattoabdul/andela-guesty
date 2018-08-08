@@ -69,9 +69,11 @@ export const createGuest = (guestData) => async(dispatch) => {
     dispatch(addGuest());
     const data = {
         guest_name: guestData.guestName,
+        group_size: guestData.groupSize,
         host_email: guestData.hostEmail,
         purpose: guestData.selectPurpose,
         time_in: guestData.timeIn,
+        time_out: guestData.timeOut,
         tag_no: guestData.tagNo
     };
 
@@ -142,7 +144,8 @@ export function updateGuestTimeOutFail(errorAddingGuest) {
 export const handleUpdateGuestTimeOut = (guestId, timeOut, submitted=false) => async(dispatch) => {
     dispatch(updateGuestTimeOut());
     const data = {
-        time_out: timeOut
+        time_out: timeOut,
+        submit_tag: submitted
     };
 
     try {

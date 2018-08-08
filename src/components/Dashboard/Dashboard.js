@@ -55,8 +55,8 @@ class Dashboard extends Component {
     }
 
     addGuestAction = (event) => {
-        let { hostEmail, guestName, selectPurpose, timeIn, tagNo } = this.state;
-        this.props.createGuest({ hostEmail, guestName, selectPurpose, timeIn, tagNo });
+        let { hostEmail, guestName, groupSize, selectPurpose, timeIn, timeOut, tagNo } = this.state;
+        this.props.createGuest({ hostEmail, guestName, groupSize, selectPurpose, timeIn, timeOut, tagNo });
         this.toggle('');
     }
 
@@ -112,6 +112,7 @@ class Dashboard extends Component {
                     <th scope="row">{index + 1}</th>
                     <td>{guest.guest_name}</td>
                     <td>{guest.host_name}</td>
+                    <td>{guest.group_size}</td>
                     <td>{guest.purpose.charAt(0).toUpperCase() + guest.purpose.slice(1)}</td>
                     <td>{guest.time_in.format_24}</td>
                     <td>{guest.time_out.format_24}</td>
@@ -171,6 +172,7 @@ class Dashboard extends Component {
                                     <th scope="col">#</th>
                                     <th scope="col">Guest Name</th>
                                     <th scope="col">Host Name</th>
+                                    <th scope="col">Group No.</th>
                                     <th scope="col">Purpose</th>
                                     <th scope="col">Time In</th>
                                     <th scope="col">Time Out</th>
