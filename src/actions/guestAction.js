@@ -107,17 +107,14 @@ export function addGuestTagFail(errorAddingGuest) {
 
 export const createGuestTag = (guestId, tagNo, beep=false) => async(dispatch) => {
     dispatch(addGuestTag());
-    const data = {
-        tag_no: tagNo,
-        beep: beep
-    };
+    const data = `tag_no=${tagNo}&beep=${beep}`;
 
     try {
         const response = await axios.patch(`/guest/${guestId}/update/tag-no`, data);
         dispatch(addGuestTagSuccess(response.data.payload));
     } catch (error) {
         dispatch(addGuestTagFail(error));
-      }
+    }
 }
 
 export function updateGuestTimeOut() {
@@ -143,10 +140,7 @@ export function updateGuestTimeOutFail(errorAddingGuest) {
 
 export const handleUpdateGuestTimeOut = (guestId, timeOut, submitted=false) => async(dispatch) => {
     dispatch(updateGuestTimeOut());
-    const data = {
-        time_out: timeOut,
-        submit_tag: submitted
-    };
+    const data = `time_out=${timeOut}&submit_tag=${submitted}`;
 
     try {
         const response = await axios.patch(`/guest/${guestId}/update/time-out`, data);
