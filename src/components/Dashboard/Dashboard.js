@@ -14,7 +14,8 @@ import {
     fetchGuest,
     createGuest,
     createGuestTag,
-    handleUpdateGuestTimeOut
+    handleUpdateGuestTimeOut,
+    setSelectedLocation
   } from '../../actions/guestAction';
 
 class Dashboard extends Component {
@@ -27,6 +28,8 @@ class Dashboard extends Component {
             actionName: '',
             guestPerPage: 10,
             currentPage: 1,
+            filterText: '',
+            currentLocation: 'lagos',
             selectPurpose: 'personal',
             singleGuest: {}
         };
@@ -52,6 +55,11 @@ class Dashboard extends Component {
 
     handleOnCheckBox = (event) => {
         this.setState({ [event.target.name]: event.target.checked });
+    }
+
+    handleOnSelectCity = (event) => {
+        this.setState({ currentLocation: event.target.value });
+        this.props.setSelectedLocation(event.target.value);
     }
 
     addGuestAction = (event) => {
@@ -91,23 +99,60 @@ class Dashboard extends Component {
         });
     }
 
+    handleOnChangeFilterText = (event) => {
+        this.setState({
+            filterText: event.target.value
+        });
+    }
+
     handleRefresh = () => {
         this.props.fetchGuest();
     }
 
     componentDidMount() {
         this.props.fetchGuest();
+        this.props.setSelectedLocation();
     }
 
     render() {
         const { guestReducer: { allGuests, meta } } = this.props;
-        const { currentPage, guestPerPage, selectPurpose } = this.state;
+        const { currentPage, guestPerPage, selectPurpose, currentLocation, filterText } = this.state;
         const indexOfLastGuest = currentPage * guestPerPage;
         const indexOfFirstGuest = indexOfLastGuest - guestPerPage;
-        const currentGuests = allGuests.slice(indexOfFirstGuest, indexOfLastGuest);
-        let totalPages = Math.ceil((allGuests.length)/(guestPerPage));
+        const allFilteredGuests = allGuests.filter(eachGuest => eachGuest.location === currentLocation && (eachGuest.guest_name.toLowerCase().indexOf(filterText) !== -1 || eachGuest.host_name.toLowerCase().indexOf(filterText) !== -1))
+        const currentGuests = allFilteredGuests.slice(indexOfFirstGuest, indexOfLastGuest);
+        let totalPages = Math.ceil((allFilteredGuests.length)/(guestPerPage));
+
+        const displayCityName = (location) => {
+            let currentCity;
+            switch (location) {
+                case 'lagos':
+                    currentCity = 'Lagos'
+                    break;
+                case 'new-york':
+                    currentCity = 'New York'
+                    break;
+                case 'nairobi':
+                    currentCity = 'Nairobi'
+                    break;
+                case 'kampala':
+                    currentCity = 'Kampala'
+                    break;
+                case 'kigali':
+                    currentCity = 'Kigali'
+                    break;
+                default:
+                    currentCity = 'Lagos'
+                    break;
+            }
+
+            return currentCity;
+        }
 
         const renderGuests = currentGuests.map((guest, index) => {
+            // if (guest.guest_name.toLowerCase().indexOf(filterText) === -1) {
+            //     return true;
+            // }
             return (<tr id={guest.id} key={index}>
                     <th scope="row">{index + 1}</th>
                     <td>{guest.guest_name}</td>
@@ -117,12 +162,14 @@ class Dashboard extends Component {
                     <td>{guest.time_in.format_24}</td>
                     <td>{guest.time_out.format_24}</td>
                     <td>{guest.tag_no}</td>
+                    <td>{displayCityName(guest.location)}</td>
                     <td>
                         <span className="edit-icon add-tag-no" onClick={() => this.toggle('Add Tag No', guest)}></span>
                         <span className="remove-icon update-time-out" onClick={() => this.toggle('Update Time Out', guest)}></span>    
                     </td>
                 </tr>);
           });
+
         return [
             <div className="Dashboard">
                 <div className="navigation-container">
@@ -153,7 +200,7 @@ class Dashboard extends Component {
                         <div className="table-filters">
                             <InputGroup className="search-filter">
                                 <Label for="search">Filter by Name:</Label>
-                                <Input placeholder="search" name="search" id="search" />
+                                <Input placeholder="search" name="search" id="search" onChange={this.handleOnChangeFilterText} />
                             </InputGroup>
                             <InputGroup className="no-of-record-filter">
                                 <Label for="no_of_record">No. of Records:</Label>
@@ -163,6 +210,17 @@ class Dashboard extends Component {
                                 <option value="50">50</option>
                                 <option value="100">100</option>
                                 <option value={meta.total_rows || "1000"}>All</option>
+                                </Input>
+                            </InputGroup>
+
+                            <InputGroup className="location-filter">
+                                <Label for="current-location">Filter by Location:</Label>
+                                <Input type="select" name="select" id="current-location" value={currentLocation} onChange={this.handleOnSelectCity}>
+                                <option id="lagos" value='lagos'>Lagos</option>
+                                <option id="new-york" value="new-york">New York</option>
+                                <option id="nairobi" value="nairobi" >Nairobi</option>
+                                <option  id="kampala" value="kampala" >Kampala</option>
+                                <option id="kigali" value="kigali">Kigali</option>
                                 </Input>
                             </InputGroup>
                         </div>
@@ -177,17 +235,22 @@ class Dashboard extends Component {
                                     <th scope="col">Time In</th>
                                     <th scope="col">Time Out</th>
                                     <th scope="col">Tag No.</th>
+                                    <th scope="col">Location</th>
                                     <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {renderGuests}
+                                {(parseInt(currentGuests.length, 10) === 0 ? <tr><td align="center" colSpan="10">No Guest Records</td></tr> : renderGuests)}
                             </tbody>
                         </table>
-                        <Pagination
-                            handlePageClick={this.handlePageClick}
-                            pageCount={parseInt(totalPages, 10)}
-                        />
+                        {(
+                            parseInt(currentGuests.length, 10) === 0 ?
+                            '' :
+                            <Pagination
+                                handlePageClick={this.handlePageClick}
+                                pageCount={parseInt(totalPages, 10)}
+                            />
+                        )}
                     </div>
                     <ModalContainer isModalOpen={this.state.isModalOpen} toggle={this.toggle} actionName={this.state.actionName} addGuestAction={this.addGuestAction} addTagAction={this.addTagNoAction} updateTimeOut={this.updateTimeOutAction} guest={this.state.singleGuest} onChange={this.handleOnChange} onCheckBox={this.handleOnCheckBox} selectPurpose={selectPurpose}/>
                 </div>
@@ -205,7 +268,8 @@ const mapDispatchToProps = {
     fetchGuest,
     createGuest,
     createGuestTag,
-    handleUpdateGuestTimeOut
+    handleUpdateGuestTimeOut,
+    setSelectedLocation
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

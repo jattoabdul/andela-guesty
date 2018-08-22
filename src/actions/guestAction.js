@@ -14,11 +14,19 @@ import {
     UPDATE_GUEST_TIMEOUT_FAIL } from '../constants';
 
 
+export const getSelectedLocation = () => {
+    return localStorage.getItem('location') || 'lagos';
+}
+
+export const setSelectedLocation = (location = 'lagos') => (dispatch) => {
+    localStorage.setItem('location', location);
+}
+
 export function getGuest() {
     return {
       type: GET_GUEST
     };
-  }
+}
 
 export function getGuestSuccess(allGuests) {
     return {
@@ -74,6 +82,7 @@ export const createGuest = (guestData) => async(dispatch) => {
         purpose: guestData.selectPurpose,
         time_in: guestData.timeIn,
         time_out: guestData.timeOut,
+        location: getSelectedLocation(),
         tag_no: guestData.tagNo
     };
 
