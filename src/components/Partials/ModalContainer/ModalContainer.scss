@@ -1,0 +1,10 @@
+@import '../../../globals/styles/base';
+
+.modal-dialog {
+    .modal-footer {
+        .btn-primary {
+            background-color: $andela-blue;
+            border-color: $andela-blue;
+        }
+    }
+}

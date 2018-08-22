@@ -1,0 +1,13 @@
+@import '../../../globals/styles/base';
+
+.form-container {
+    .add-guest-form {
+        .form-group {
+            margin: 1rem auto 0;
+
+            select[name='location'], select[name='selectPurpose'] {
+                width: 12rem;
+            }
+        }
+    }
+}

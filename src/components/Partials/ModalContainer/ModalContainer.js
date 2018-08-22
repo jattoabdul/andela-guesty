@@ -14,7 +14,7 @@ const renderButton = (props) => {
 
 const renderForm = (props) => {
     switch(props.actionName){
-        case 'Add Guest': return <AddGuestForm hostEmail={props.hostEmail} guestName={props.guestName} selectPurpose={props.selectPurpose} timeIn={props.timeIn} tagNo={props.tagNo} onChange={props.onChange} />;
+        case 'Add Guest': return <AddGuestForm hostEmail={props.hostEmail} guestName={props.guestName} selectPurpose={props.selectPurpose} timeIn={props.timeIn} tagNo={props.tagNo} location={props.location} handleOnSelectCity={props.handleOnSelectCity} onChange={props.onChange} />;
         case 'Add Tag No': return <AddTagNoForm guest={props.guest} tagNo={props.tagNo} beep={props.beep} onChange={props.onChange} onCheckBox={props.onCheckBox} />;
         case 'Update Time Out': return <UpdateTimeoutForm guest={props.guest} timeOut={props.timeOut} tag_submitted={props.tag_submitted} onChange={props.onChange} onCheckBox={props.onCheckBox}/>;
         default: return <AddGuestForm hostEmail={props.hostEmail} guestName={props.guestName} selectPurpose={props.selectPurpose} timeIn={props.timeIn} tagNo={props.tagNo} onChange={props.onChange} />;

@@ -141,6 +141,9 @@ class Dashboard extends Component {
                 case 'kigali':
                     currentCity = 'Kigali'
                     break;
+                case 'san-francisco':
+                    currentCity = 'San Francisco'
+                    break;
                 default:
                     currentCity = 'Lagos'
                     break;
@@ -150,9 +153,6 @@ class Dashboard extends Component {
         }
 
         const renderGuests = currentGuests.map((guest, index) => {
-            // if (guest.guest_name.toLowerCase().indexOf(filterText) === -1) {
-            //     return true;
-            // }
             return (<tr id={guest.id} key={index}>
                     <th scope="row">{index + 1}</th>
                     <td>{guest.guest_name}</td>
@@ -218,6 +218,7 @@ class Dashboard extends Component {
                                 <Input type="select" name="select" id="current-location" value={currentLocation} onChange={this.handleOnSelectCity}>
                                 <option id="lagos" value='lagos'>Lagos</option>
                                 <option id="new-york" value="new-york">New York</option>
+                                <option id="san-francisco" value="san-francisco">San Francisco</option>
                                 <option id="nairobi" value="nairobi" >Nairobi</option>
                                 <option  id="kampala" value="kampala" >Kampala</option>
                                 <option id="kigali" value="kigali">Kigali</option>
@@ -252,7 +253,7 @@ class Dashboard extends Component {
                             />
                         )}
                     </div>
-                    <ModalContainer isModalOpen={this.state.isModalOpen} toggle={this.toggle} actionName={this.state.actionName} addGuestAction={this.addGuestAction} addTagAction={this.addTagNoAction} updateTimeOut={this.updateTimeOutAction} guest={this.state.singleGuest} onChange={this.handleOnChange} onCheckBox={this.handleOnCheckBox} selectPurpose={selectPurpose}/>
+                    <ModalContainer isModalOpen={this.state.isModalOpen} toggle={this.toggle} actionName={this.state.actionName} addGuestAction={this.addGuestAction} location={currentLocation} handleOnSelectCity={this.handleOnSelectCity} addTagAction={this.addTagNoAction} updateTimeOut={this.updateTimeOutAction} guest={this.state.singleGuest} onChange={this.handleOnChange} onCheckBox={this.handleOnCheckBox} selectPurpose={selectPurpose}/>
                 </div>
             </div>,
             <Footer />

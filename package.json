@@ -1,6 +1,7 @@
 {
   "name": "andela-guesty",
   "version": "0.1.0",
+  "homepage" : "https://andela-guesty.herokuapp.com/",
   "private": true,
   "dependencies": {
     "autoprefixer": "7.1.6",
