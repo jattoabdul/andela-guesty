@@ -167,6 +167,10 @@
             .table {
                 text-align: center;
 
+                .tag-status {
+                    display: block;
+                }
+
                 .edit-icon {
                     background-image: url("../../assets/tag.png");
                     background-repeat: round;

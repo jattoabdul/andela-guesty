@@ -166,8 +166,10 @@ class Dashboard extends Component {
                     <td>{guest.purpose.charAt(0).toUpperCase() + guest.purpose.slice(1)}</td>
                     <td>{guest.time_in.format_24}</td>
                     <td>{guest.time_out.format_24}</td>
-                    <td>{guest.tag_no}</td>
-                    <td>{JSON.stringify(guest.submit_tag)}</td>
+                    <td>
+                    {guest.tag_no}
+                    <sub className="tag-status">Status: {guest.submit_tag ? 'Returned' : 'Not Returned'}</sub>
+                    </td>
                     <td>{displayCityName(guest.location)}</td>
                     <td>
                         <span className="edit-icon add-tag-no" onClick={() => this.toggle('Add Tag No', guest)}></span>
@@ -242,8 +244,7 @@ class Dashboard extends Component {
                                     <th scope="col">Purpose</th>
                                     <th scope="col">Time In</th>
                                     <th scope="col">Time Out</th>
-                                    <th scope="col">Tag No.</th>
-                                    <th scope="col">Tag ?</th>
+                                    <th scope="col">Tag</th>
                                     <th scope="col">Location</th>
                                     <th scope="col">Actions</th>
                                 </tr>
