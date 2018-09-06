@@ -112,10 +112,15 @@ class Dashboard extends Component {
     componentDidMount() {
         this.props.fetchGuest();
         this.props.setSelectedLocation();
+        this.interval = setInterval(this.handleRefresh, 600000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
     }
 
     render() {
-        const { guestReducer: { allGuests, meta } } = this.props;
+        const { guestReducer: { allGuests, isFetchingGuest, meta } } = this.props;
         const { currentPage, guestPerPage, selectPurpose, currentLocation, filterText } = this.state;
         const indexOfLastGuest = currentPage * guestPerPage;
         const indexOfFirstGuest = indexOfLastGuest - guestPerPage;
@@ -162,6 +167,7 @@ class Dashboard extends Component {
                     <td>{guest.time_in.format_24}</td>
                     <td>{guest.time_out.format_24}</td>
                     <td>{guest.tag_no}</td>
+                    <td>{JSON.stringify(guest.submit_tag)}</td>
                     <td>{displayCityName(guest.location)}</td>
                     <td>
                         <span className="edit-icon add-tag-no" onClick={() => this.toggle('Add Tag No', guest)}></span>
@@ -190,6 +196,7 @@ class Dashboard extends Component {
                         <div className="add-guest-container">
                             <div className="refresh-guest-btn" onClick={this.handleRefresh}>
                                 <span>Refresh</span>
+                                {isFetchingGuest ? <div className="loader absolute"></div> : ''}
                             </div>
                             <div className="add-guest-btn"  onClick={() => this.toggle('Add Guest')}>
                                 <span>Add Guest</span>
@@ -236,6 +243,7 @@ class Dashboard extends Component {
                                     <th scope="col">Time In</th>
                                     <th scope="col">Time Out</th>
                                     <th scope="col">Tag No.</th>
+                                    <th scope="col">Tag ?</th>
                                     <th scope="col">Location</th>
                                     <th scope="col">Actions</th>
                                 </tr>

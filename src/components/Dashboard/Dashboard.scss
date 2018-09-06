@@ -82,6 +82,21 @@
                     border-radius: .3rem;
                     padding: 1rem;
                     margin-right: .5rem;
+
+                    .loader {
+                        border: 5px solid $andela-white;
+                        animation: App-logo-spin infinite 1s linear;
+                        border-top: 5px solid $andela-border-grey-light;
+                        border-radius: 50%;
+                        width: 2rem;
+                        height: 2rem;
+                        
+                        &.absolute {
+                            position: absolute;
+                            top: .5rem;
+                            right: .7rem;
+                        }
+                    }
             
                     @include smm {
                         width: 7rem;
@@ -150,6 +165,8 @@
             }
 
             .table {
+                text-align: center;
+
                 .edit-icon {
                     background-image: url("../../assets/tag.png");
                     background-repeat: round;
@@ -215,3 +232,9 @@
     }
 
 }
+
+@keyframes App-logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
