@@ -112,7 +112,7 @@ class Dashboard extends Component {
     componentDidMount() {
         this.props.fetchGuest();
         this.props.setSelectedLocation();
-        this.interval = setInterval(this.handleRefresh, 600000);
+        this.interval = setInterval(this.handleRefresh, 180000);
     }
 
     componentWillUnmount() {
@@ -220,7 +220,7 @@ class Dashboard extends Component {
                                 <option value="100">100</option>
                                 <option value={meta.total_rows || "1000"}>All</option>
                                 </Input>
-                            </InputGroup>
+                            </InputGroup>              
 
                             <InputGroup className="location-filter">
                                 <Label for="current-location">Filter by Location:</Label>
